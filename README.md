@@ -1,33 +1,37 @@
-# 🏆 Jeu de Combat
+# Jeu de Stratégie - JeuDeStrategique
 
-Un jeu de stratégie en **Java** où les joueurs se déplacent sur une **grille**, interagissent avec des obstacles et s'affrontent au **tour par tour**.
+## Auteurs
+- **Diallo Boubacar Sadio** : 22211641  
+- **Diare Youssouf** : 22008756  
+- **EMAM Mohamed El Mamy** : 22019076  
+- **OLANGASSICKA ONDOUMBOU Franck Loick** : 22112035  
 
-## 📜 Description
+---
 
-Ce jeu propose une expérience immersive avec une interface graphique intuitive, un mode solo contre une IA et un mode multijoueur. Il utilise plusieurs **design patterns** pour assurer une architecture logicielle robuste et évolutive.
+## Description
 
-## 🚀 Fonctionnalités
+**JeuDeStrategique** est un projet de jeu de stratégie développé en Java, mettant en avant des mécaniques stratégiques et un système flexible pour les joueurs, avec un rendu fluide de la partie.
 
-- 🎮 **Mode solo** : affrontez une IA intelligente  
-- 👫 **Mode multijoueur** : combattez un autre joueur  
-- 🔄 **Tour par tour** : chaque joueur planifie ses actions  
-- 🎯 **Déplacement stratégique** sur une grille avec obstacles  
-- 🛡️ **Système de combat dynamique** avec compétences  
-- 🏗️ **Utilisation de plusieurs design patterns** :  
-  - **Stratégie** : différentes tactiques pour les joueurs et l’IA  
-  - **Proxy** : gestion des accès aux données du jeu  
-  - **Factory** : création des personnages et objets  
+---
 
-## 🛠️ Technologies Utilisées
+## Prérequis
 
-- **Java** (Langage principal)  
-- **Swing** (Interface graphique)  
-- **Design Patterns** (Stratégie, Proxy, Factory...)  
-- **MVC (Modèle-Vue-Contrôleur)** pour une architecture modulaire  
+- **Java Development Kit (JDK)** : version 11 ou supérieure.
+- **Apache Ant** : pour automatiser les tâches de construction.
 
-## 📦 Installation et Exécution
+---
+##
+apres execution n'oubliez pas de depiler les fenetres affichants les grilles proxy des joueurs
 
-1. **Cloner le projet**  
-```sh
-git clone https://github.com/franckolangas/JeuDeCombat.git
-cd JeuDeCombat
+## Installation et Compilation
+
+1. **Cloner le projet** :
+   ```bash
+    svn checkout https://redmine-etu.unicaen.fr/svn/diare-diallo-olangassicka-emam
+2. : cd livraison
+    ant clean     # Nettoie les fichiers générés
+    ant compile   # Compile le projet
+    ant dist      # Génère le fichier .jar de distribution
+    ant run       # Exécute le jeu
+    ant javadoc   # Génère la documentation Javadoc
+    java -jar dist/JeuDeStrategique-0.1.jar # Exécuter l'application sur différentes machines

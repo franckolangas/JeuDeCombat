@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Strategique" default="run" basedir=".">
+
+    <!-- Propriétés principales -->
+    <property name="app.name"      value="JeuDeStrategique" />
+    <property name="app.version"   value="0.1"/>
+    <property name="app.fullname"  value="${app.name}-${app.version}"/>
+    <property name="build.home"    value="${basedir}/build"/>
+    <property name="dist.home"     value="${basedir}/dist"/>
+    <property name="doc.home"      value="${basedir}/doc"/>
+    <property name="src.home"      value="${basedir}/src"/>
+    <property name="javac.encoding" value="UTF-8"/>
+    <property name="main.class"    value="vue.Main"/>
+
+    <!-- Compilation Classpath -->
+    <path id="compile.classpath">
+        <fileset dir="${build.home}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- Nettoyer le projet -->
+    <target name="clean" description="Supprimer les anciens fichiers générés">
+        <delete dir="${build.home}"/>
+        <delete dir="${dist.home}"/>
+    </target>
+
+    <!-- Préparer les dossiers nécessaires -->
+    <target name="prepare" depends="clean">
+        <mkdir dir="${build.home}"/>
+        <mkdir dir="${dist.home}"/>
+    </target>
+
+    <!-- Compilation des fichiers sources -->
+    <target name="compile" depends="prepare" description="Compiler les fichiers Java">
+        <javac srcdir="${src.home}" destdir="${build.home}" encoding="${javac.encoding}" debug="true">
+            <classpath refid="compile.classpath"/>
+        </javac>
+
+        <!-- Copier les ressources (non-Java) -->
+        <copy todir="${build.home}">
+            <fileset dir="${src.home}" excludes="**/*.java"/>
+        </copy>
+    </target>
+
+    <!-- Création du fichier JAR -->
+    <target name="dist" depends="compile" description="Créer le fichier JAR exécutable">
+        <mkdir dir="${dist.home}"/>
+
+        <jar jarfile="${dist.home}/${app.fullname}.jar" basedir="${build.home}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Générer la documentation Javadoc -->
+    <target name="javadoc" depends="compile" description="Générer la documentation Javadoc">
+        <mkdir dir="${doc.home}"/>
+        <javadoc sourcepath="${src.home}" destdir="${doc.home}">
+            <classpath refid="compile.classpath"/>
+        </javadoc>
+    </target>
+
+    <!-- Exécuter le projet -->
+    <target name="run" depends="dist" description="Exécuter le fichier JAR">
+        <java jar="${dist.home}/${app.fullname}.jar" fork="true"/>
+    </target>
+
+</project>
