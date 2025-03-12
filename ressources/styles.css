@@ -1,0 +1,30 @@
+/* styles.css
+.grid-pane {
+    -fx-background-color: #F0F0F0;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 10px;
+}
+
+button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-min-width: 120px;
+    -fx-max-width: 120px;
+    -fx-min-height: 40px;
+    -fx-max-height: 40px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 5, 0.4, 1, 1);
+}
+
+button:hover {
+    -fx-background-color: #45a049;
+}
+
+button:pressed {
+    -fx-background-color: #3e8e41;
+} */
